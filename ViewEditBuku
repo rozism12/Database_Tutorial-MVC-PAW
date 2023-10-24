@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Buku Tere Liye</title>
+</head>
+<body>
+    <h1>Edit Buku Tere Liye</h1>
+
+    <form action="{{ route('buku.update', $buku->id) }}" method="post" enctype="multipart/form-data">
+        @csrf
+
+        <div class="form-group">
+            <label for="judul">Judul</label>
+            <input type="text" name="judul" id="judul" class="form-control" value="{{ $buku->judul }}">
+        </div>
+
+        <div class="form-group">
+            <label for="penulis">Penulis</label>
+            <input type="text" name="penulis" id="penulis" class="form-control" value="{{ $buku->penulis }}">
+        </div>
+
+        <div class="form-group">
+            <label for="genre">Genre</label>
+            <input type="text" name="genre" id="genre" class="form-control" value="{{ $buku->genre }}">
+        </div>
+
+        <div class="form-group">
+            <label for="tahun_terbit">Tahun Terbit</label>
+            <input type="number" name="tahun_terbit" id="tahun_terbit" class="form-control" value="{{ $buku->tahun_terbit }}">
+        </div>
+
+        <div class="form-group">
+            <label for="sinopsis">Sinopsis</label>
+            <textarea name="sinopsis" id="sinopsis" class="form-control">{{ $buku->sinopsis }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="cover">Cover</label>
+            <input type="file" name="cover" id="cover" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Simpan</button>
+    </form>
+</body>
+</html>
