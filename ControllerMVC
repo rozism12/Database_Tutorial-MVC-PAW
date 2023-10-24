@@ -1,0 +1,43 @@
+<?php
+class BukuController {
+    public function index() {
+        $buku = Buku::findAll();
+        return view('buku/index', compact('buku'));
+    }
+    public function create() {
+        return view('buku/create');
+    }
+    public function store() {
+        $data = $this->request->all();
+        $buku = new Buku();
+        $buku->setJudul($data['judul']);
+        $buku->setPenulis($data['penulis']);
+        $buku->setGenre($data['genre']);
+        $buku->setTahunTerbit($data['tahun_terbit']);
+        $buku->setSinopsis($data['sinopsis']);
+        $buku->setCover($data['cover']);
+        $buku->save();
+        return redirect('/buku');
+    }
+    public function edit($id) {
+        $buku = Buku::find($id);
+        return view('buku/edit', compact('buku'));
+    }
+    public function update($id) {
+        $data = $this->request->all();
+        $buku = Buku::find($id);
+        $buku->setJudul($data['judul']);
+        $buku->setPenulis($data['penulis']);
+        $buku->setGenre($data['genre']);
+        $buku->setTahunTerbit($data['tahun_terbit']);
+        $buku->setSinopsis($data['sinopsis']);
+        $buku->setCover($data['cover']);
+        $buku->update();
+        return redirect('/buku');
+    }
+    public function destroy($id) {
+        $buku = Buku::find($id);
+        $buku->delete();
+        return redirect('/buku');
+    }
+}
