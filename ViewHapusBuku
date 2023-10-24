@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hapus Buku Tere Liye</title>
+</head>
+<body>
+    <h1>Hapus Buku Tere Liye</h1>
+
+    <p>Apakah Anda yakin ingin menghapus buku ini?</p>
+
+    <a href="{{ route('buku.destroy', $buku->id) }}" class="btn btn-danger">Hapus</a>
+    <a href="{{ route('buku.index') }}" class="btn btn-secondary">Batal</a>
+</body>
+</html>
